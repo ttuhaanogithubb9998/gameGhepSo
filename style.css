@@ -1,0 +1,67 @@
+.container-fluid{
+    min-height: 646px;
+    background-image: linear-gradient(to top , rgba(235, 36, 36, 0.5) 50%, rgba(233, 102, 189, 0.596)),url(https://ttuhaanogithubb9998.github.io/astronomy/img/latest_news/999.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.letf{
+    border-right: 3px solid #2be249;
+    min-height: 646px;
+}
+.player input{
+    margin-top: 20px;
+    padding: 2px;
+    border: rgb(104, 209, 223) solid 1px;
+    border-radius: 4px;
+    width: 100%;
+}
+.minTime h5{
+    margin-top: 20px;
+    color: lightgray;
+}
+.userTimeMin{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 500;
+}
+.content{
+    margin: 20px;
+}
+select{
+    width: 100%;
+}
+.scores span{
+    color: lightgray;
+    font-weight: 500;
+    font-size: 20px;
+}
+.item {
+    
+    margin-bottom: 10px;
+    flex: none;
+    overflow: hidden;
+    transition: 0.5s;
+    
+}
+.item div{
+    color: rgb(255, 255, 143);
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(128, 230, 224,0.9);
+    height: 50px;
+
+}
+.alert{
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+}
+.alert h4{
+    font-size: 50px;
+    color: #2be249;
+}
+.alert button{
+    font-size: 20px;
+    color : rgb(151, 151, 151);
+}

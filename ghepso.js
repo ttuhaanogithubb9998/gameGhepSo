@@ -12,7 +12,7 @@ const loadHtml = () => {
     const onChangeSelect = (e) => {
         let level = e.target.value;
         selectLevel(level);
-        handlePlaying(url, minTimeElement, level);
+        handlePlaying(url, minTimeElement, level,levelElement);
         Scores();
         getMinTime(url, minTimeElement, level)
     }
@@ -20,7 +20,7 @@ const loadHtml = () => {
 
     // load lần đầu
     selectLevel(1);
-    handlePlaying(url, minTimeElement, 1);
+    handlePlaying(url, minTimeElement, 1,levelElement);
     Scores();
     getMinTime(url, minTimeElement, 1);
 
@@ -63,7 +63,7 @@ const selectLevel = (level) => {
     }, 2000);
 }
 // xử lý sự kiên khi chơi
-const handlePlaying = (url, minTimeElement, level) => {
+const handlePlaying = (url, minTimeElement, level,levelElement) => {
     var itemElements = document.querySelectorAll('.item div');
     var dem = 0;
     var value;
@@ -113,7 +113,7 @@ const handlePlaying = (url, minTimeElement, level) => {
                         level: level,
                     }
                     pulPlayer(url, data);
-                    winGame(url,minTimeElement, level);
+                    winGame(url,minTimeElement, level,levelElement);
                     clearInterval(lap);
                 }
             }
@@ -194,7 +194,6 @@ const getMinTime = (url, minTimeElement, level) => {
         })
         .then(function (data) {
             let arrTimeLevel = data.filter((element) => element.level == level);
-            console.log(level)
             let min = arrTimeLevel[0].time
             
             let userTimeMin;
@@ -208,8 +207,11 @@ const getMinTime = (url, minTimeElement, level) => {
                 let s = element.time;
                 let m = Math.floor(s / 60);
                 s = m > 0 ? s - m * 60 : s;
+                s = s < 10 ? '0'+s :s; 
                 let h = Math.floor(m / 60);
+                h = h < 10 ? '0' + h : h;
                 m = h > 0 ? m - h * 60 : m;
+                m = m < 10 ? '0' + m : m;
 
                 userTimeMin = `<div class="userTimeMin">${element.name} (${h}:${m}:${s})</div>`;
                 minTimeElement.innerHTML += userTimeMin;
@@ -235,6 +237,7 @@ const winGame = (url,minTimeElement, level,levelElement) => {
     var contentElement = document.querySelector('.content .row');
     const nextLevel = () => {
         level=level*1;
+        console.log(levelElement)
         levelElement.value=level+1
         selectLevel(level+1);
         handlePlaying(url, level+1);

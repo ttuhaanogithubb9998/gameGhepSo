@@ -50,8 +50,9 @@ select{
     justify-content: center;
     background-color: rgb(128, 230, 224,0.9);
     height: 50px;
-
+    cursor: pointer;
 }
+.item div:hover {transform: scale(1.1);}
 .alert{
     text-align: center;
     padding: 50px;
